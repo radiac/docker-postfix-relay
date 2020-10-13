@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+  postfix-relay:
+    build: .
+    image: postfix-relay
+    restart_policy: unless-stopped
+    networks:
+      - postfix-relay
+    environment:
+      MAIL_HOST:
+      RELAY_HOST:
+      RELAY_PORT:
+      RELAY_USERNAME:
+      RELAY_PASSWORD:
+networks:
+  postfix-relay:
+    name: postfix-relay

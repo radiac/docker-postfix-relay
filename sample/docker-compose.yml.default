@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  sample-service:
+    build: .
+    image: postfix-relay-sample
+    networks:
+      - postfix-relay
+    environment:
+      MAIL_HOST: postfix-relay
+      MAIL_FROM: from@example.com
+      MAIL_TO: to@example.com
+networks:
+  postfix-relay:
+    external: true
